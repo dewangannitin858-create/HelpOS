@@ -60,6 +60,7 @@ export type View =
   | "Focus timer"
   | "Notes"
   | "Goals"
+  | "Attendance"
   | "Analytics"
   | "Study assistant"
   | "Student tools"

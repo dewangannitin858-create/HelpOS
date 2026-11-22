@@ -33,7 +33,7 @@ import {
   Layers,
   ChevronsLeft,
   BookOpen,
-  PanelLeftClose,
+  PanelLeftClose, CalendarCheck,
 } from "lucide-react";
 import {
   Entry,
@@ -55,10 +55,10 @@ import { useFocus, FocusView } from "./focus";
 import { Planner, Calendar, Habits } from "./planner";
 import { Notes } from "./notes";
 import { Analytics, Assistant, Utilities } from "./insights";
-import { Settings } from "./settings";
+import { Settings } from "./settings"; import { Attendance } from "./attendance";
 const groups: { name: string; items: View[] }[] = [
   { name: "Workspace", items: ["Dashboard", "Calendar", "Tasks", "Notes"] },
-  { name: "Academics", items: ["Assignments", "Exams", "Goals"] },
+  { name: "Academics", items: ["Assignments", "Exams", "Goals", "Attendance"] },
   { name: "Productivity", items: ["Focus timer", "Habits", "Analytics"] },
 ];
 const navIcons = {
@@ -74,7 +74,7 @@ const navIcons = {
   Analytics: ChartNoAxesCombined,
   "Study assistant": Sparkles,
   "Student tools": Calculator,
-  Settings: Settings2,
+  Settings: Settings2, Attendance: CalendarCheck,
 };
 const createKinds: Partial<Record<View, Kind>> = {
   Calendar: "event",
@@ -97,7 +97,7 @@ const subtitles: Partial<Record<View, string>> = {
   Analytics: "Explore your study time, progress, and consistency.",
   "Student tools": "Calculate grades and track semester performance.",
   Settings: "Manage your profile, preferences, and workspace data.",
-  "Study assistant": "Study plans and revision support for your workspace.",
+  "Study assistant": "Study plans and revision support for your workspace.", Attendance: "Track your semester classes and daily lecture attendance.",
 };
 const viewSlug = (v: View) => v.toLowerCase().replaceAll(" ", "-");
 export function Workspace() {
@@ -465,7 +465,7 @@ export function Workspace() {
                   ) : view === "Study assistant" ? (
                     <Assistant entries={entries} actions={actions} />
                   ) : view === "Student tools" ? (
-                    <Utilities entries={entries} actions={actions} />
+                    <Utilities entries={entries} actions={actions} /> ) : view === "Attendance" ? ( <Attendance />)
                   ) : view === "Settings" ? (
                     <Settings
                       entries={entries}
