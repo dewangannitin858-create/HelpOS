@@ -465,8 +465,9 @@ export function Workspace() {
                   ) : view === "Study assistant" ? (
                     <Assistant entries={entries} actions={actions} />
                   ) : view === "Student tools" ? (
-                    <Utilities entries={entries} actions={actions} /> ) : view === "Attendance" ? ( <Attendance />)
-                  ) : view === "Settings" ? (
+                    <Utilities entries={entries} actions={actions} /> 
+                  ) : view === "Attendance" ? ( <Attendance />)
+                    : view === "Settings" ? (
                     <Settings
                       entries={entries}
                       actions={actions}
